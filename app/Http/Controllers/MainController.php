@@ -41,12 +41,14 @@ class MainController extends Controller
 
 		return view('main.action');
 	}
-	public function StoreController() {
-		$store = 'Store';
-		$products = Product::all();
-		$categories = DB::table('categories')->get();
 
-//		dump($categories);
-	    return view('main.sale',compact('store','products','categories'));
-	}
+//
+//	public function StoreController() {
+//		$store = 'Store';
+//		$products = Product::all();
+//		$categories = DB::table('categories')->get();
+//
+////		dump($categories);
+//	    return view('main.sale',compact('store','products','categories'));
+//	}
 }

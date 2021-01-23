@@ -7,5 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Product extends Model
 {
-    use HasFactory;
+	use HasFactory;
+
+	public function getImgAttribute($value){
+		return $value ? : '/images/no_image.png';
+	}
+
 }
