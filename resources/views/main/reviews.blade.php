@@ -9,7 +9,7 @@
 
     @endif
 
-    <form action="/reviews" method="POST">
+    <form action="/reviews" method="POST" class="col-md-5 ">
         @csrf
 
         <div class="form-group">
@@ -28,9 +28,31 @@
             @enderror
         </div>
         <button class="btn btn-primary mt-2">Send</button>
-
     </form>
+    <br>
+    <div class="container ">
 
+        @forelse($reviews as $item)
+
+            <div class="card m-3">
+
+                    <h5 class="card-header">{{$item->name}}</h5>
+                    <div class="card-body">
+                        <p class="card-text">{{$item->review}}</p>
+                        <span class="float-md-right">Published : {{$item->created_at = date('d.m.Y')}}</span>
+{{--                        <form action="/reviews" method="POST">--}}
+{{--                            @csrf--}}
+{{--                            <input type="hidden" name="reviewID" value="{{$item->id}}">--}}
+{{--                            <button class="btn border-info">Del review</button>--}}
+{{--                        </form>--}}
+                    </div>
+
+            </div>
+        @empty
+            <p class="text-center">No reviews</p>
+        @endforelse
+        {{$reviews->links()}}
+    </div>
 @endsection
 
 @section('title', 'reviews')

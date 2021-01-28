@@ -5,7 +5,7 @@
     <h1>{{$store}}</h1>
     <div class="row">
         @foreach($products as $item )
-            <div class="card ms-2" style="width: 18rem; ">
+            <div class="card text-center ms-2" style="width: 18rem; ">
                 <img src="{{$item->img}}" class="card-img-top" alt="{{$item->name}}">
                 <div class="card-body">
                     <h5 class="card-title">{{$item->name}}</h5>
@@ -15,9 +15,8 @@
                 </div>
             </div>
         @endforeach
-        {{$products->links()}}
     </div>
-
+    {{$products->links()}}
 
 @endsection
 
