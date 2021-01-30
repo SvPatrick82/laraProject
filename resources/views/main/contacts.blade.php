@@ -50,4 +50,7 @@
 
 @section('title', 'Contacts')
 
-
+@section('sidebar')
+    Address
+    @parent
+@endsection

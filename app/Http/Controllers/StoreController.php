@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -21,5 +22,13 @@ class StoreController extends Controller
 
 //				dd($products);
 		return view('main.sale',compact('store','products','categories'));
+	}
+
+	public function category($slug)
+	{
+		$category = Category::where('slug','=',$slug)->firstOrFail();
+		$products = Product::where('category_id',$category->id)->paginate(2) ;
+//		dd($products->links());
+		return view('store.category',compact('category','products'));
 	}
 }

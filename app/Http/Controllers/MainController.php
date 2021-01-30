@@ -3,22 +3,26 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Category;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Support\Facades\DB;
 
 class MainController extends Controller
 {
+
+
 	public function index()
 	{
 		$title = 'Welcome';
 		$subtitle = '<em> to store </em>';
-		$products = Product::all();
-		$categories = Category::all();
-//		dump($products);
+		$products = Product::with('category')->get(); //category --  название метода в модели
+//		dd($products[0]);
+//		$categories = Category::all();
 //		dd($categories);
-		return view('main.index',compact('title','products','subtitle','categories'));
+		return view('main.index',compact('title','products','subtitle'));
 	}
+
+
 
 	public function contacts()
 	{

@@ -36,17 +36,17 @@
                 <li class="nav-item">
                     <a class="nav-link" href="/contacts">Contacts</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="/action">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </li>
+{{--                <li class="nav-item dropdown">--}}
+{{--                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">--}}
+{{--                        Dropdown--}}
+{{--                    </a>--}}
+{{--                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">--}}
+{{--                        <li><a class="dropdown-item" href="/action">Action</a></li>--}}
+{{--                        <li><a class="dropdown-item" href="#">Another action</a></li>--}}
+{{--                        <li><hr class="dropdown-divider"></li>--}}
+{{--                        <li><a class="dropdown-item" href="#">Something else here</a></li>--}}
+{{--                    </ul>--}}
+{{--                </li>--}}
                 <li class="nav-item">
                     <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
                 </li>
@@ -59,7 +59,17 @@
     </div>
 </nav>
 <div class="container">
-    @yield('content')
+    <div class="row">
+        <div class="col-md-3">
+            @section('sidebar')
+                @include('store.parts._list-categories')
+            @show
+        </div>
+        <div class="col-md-9">
+            @yield('content')
+        </div>
+    </div>
+
 </div>
 
 
