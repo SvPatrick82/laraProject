@@ -123,6 +123,5 @@
         </list>
       </option>
     </inspection_tool>
-    <inspection_tool class="UnusedFunctionResultInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true" />
   </profile>
 </component>

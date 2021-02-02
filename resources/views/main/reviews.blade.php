@@ -8,6 +8,8 @@
         </div>
 
     @endif
+    @auth
+
 
     <form action="/reviews" method="POST" class="col-md-5 ">
         @csrf
@@ -29,6 +31,9 @@
         </div>
         <button class="btn btn-primary mt-2">Send</button>
     </form>
+    @else
+        <a href="/">Login or reg</a>
+    @endauth
     <br>
     <div class="container ">
 
@@ -40,11 +45,6 @@
                     <div class="card-body">
                         <p class="card-text">{{$item->review}}</p>
                         <span class="float-md-right">Published : {{$item->created_at = date('d.m.Y')}}</span>
-{{--                        <form action="/reviews" method="POST">--}}
-{{--                            @csrf--}}
-{{--                            <input type="hidden" name="reviewID" value="{{$item->id}}">--}}
-{{--                            <button class="btn border-info">Del review</button>--}}
-{{--                        </form>--}}
                     </div>
 
             </div>
