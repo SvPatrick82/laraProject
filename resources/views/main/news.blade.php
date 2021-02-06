@@ -8,13 +8,15 @@
         @foreach ($newss as $item)
             <div class="card ml-2 col-md-5">
                 <h4 class="m-1">{{$item->title}}</h4>
+                <img src="{{$item->img}}" class="card-img-top float-start" alt="{{$item->title}}">
                 <hr>
-                <span class="text-right">{{$item->short_content}}</span>
-                <br>
-                <span class="text-center">
-                    <img src="{{$item->img}}" class="card-img-top float-start" alt="{{$item->title}}">
-                    {{$item->content}}
-                </span>
+                <details>
+                    <summary class="text-right">{{$item->short_content}}</summary>
+                    <br>
+                    <span class="text-center">
+                        {{$item->content}}
+                    </span>
+                </details>
                 <br>
                 @foreach ($users as $user)
                     @if ($user->id === $item->user_id)

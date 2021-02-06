@@ -34,6 +34,12 @@ Route::get('/reviews', [ReviewController::class,'reviews']);
 Route::post('/reviews', [ReviewController::class,'getReviews']);
 Route::get('/news', [NewsController::class,'news']);
 Route::get('/category/{slug}', [StoreController::class,'category']);
+Route::get('/product/{slug}', [StoreController::class,'product']);
+Route::POST('/product/{slug}', [StoreController::class,'addReview']);
+
+Route::get('/product/{slug}/{parameter}', [StoreController::class,'productDesc']);
+
+
 
 
 

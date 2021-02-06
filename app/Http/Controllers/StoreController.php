@@ -31,4 +31,24 @@ class StoreController extends Controller
 //		dd($products->links());
 		return view('store.category',compact('category','products'));
 	}
+	public function product($slug)
+	{
+		$product = Product::where('slug','=',$slug)->firstOrFail();
+		$category = Category::where($product->category_id,'=','category_id');
+//		dd($product);
+		return view('store.product', compact('product','category'));
+	}
+
+	public function addReview(){
+		$review = strip_tags($_POST['productRev']);
+		dd($review);
+	}
+
+	public function productDesc($slug,$parameter)
+	{
+		$product = Product::where('slug','=',$slug)->firstOrFail() ;
+		$parameter = ucfirst($parameter);
+//		dd($parameter);
+		return view("store.parts.product._prod{$parameter}",compact('product','slug','parameter'));
+	}
 }
