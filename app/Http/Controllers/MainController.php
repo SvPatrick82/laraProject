@@ -15,7 +15,7 @@ class MainController extends Controller
 	{
 		$title = 'Welcome';
 		$subtitle = '<em> to store </em>';
-		$products = Product::with('category')->get(); //category --  название метода в модели
+		$products = Product::with('category')->lastes()->get(); //category --  название метода в модели
 //		dd($products[0]);
 //		$categories = Category::all();
 //		dd($categories);

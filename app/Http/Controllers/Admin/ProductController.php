@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
 use Illuminate\Http\Request;
 
-class CategoryController extends Controller
+class ProductController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class CategoryController extends Controller
      */
     public function index()
     {
-		$categories = Category::orderByDesc('created_at')->get();
-	    return view('admin.category.index',compact('categories'));
+        //
     }
 
     /**
@@ -26,34 +24,18 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        return view('admin.category.create');
+        //
     }
 
     /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-//        $category = new Category();
-//        $category->name = $request->name;
-//        $category->slug = $request->slug;
-//        $category->description = $request->description;
-//	    $fname = $request->file('imgUpload');
-//	    $category->img = $request->img;
-//	    $category->save();
-
-
-//        if($fname != null){
-//
-//	        $category->img = $fname->store('uploads');
-//        }
-
-	    Category::create($request->all() );
-
-        return redirect('/admin/category');
+        //
     }
 
     /**

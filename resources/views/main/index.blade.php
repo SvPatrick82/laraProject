@@ -15,6 +15,8 @@
                     <div class="card-body d-flex flex-column justify-content-between">
                         <img src="{{$product->img}}" class="card-img-top" alt="{{$product->name}}">
 
+                        Count: {{$product->reviews_count}}
+
                         <h4>Category: <a href="/category/{{$product->category->slug}}">{{$product->category->name}}</a></h4>
                         <details>
                             <summary style="color:red"><strong>Description</strong></summary>

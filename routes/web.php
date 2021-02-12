@@ -27,7 +27,6 @@ use App\Http\Controllers\Admin\CategoryController;
 
 Route::get('/', [MainController::class,'index']);
 Route::get('/contacts', [MainController::class,'contacts']); //->middleware('auth') - добавить посредника
-
 Route::post('/contacts', [MainController::class,'getContacts']);
 Route::get('/sale', [StoreController::class,'sale']);
 Route::get('/reviews', [ReviewController::class,'reviews']);
@@ -51,5 +50,7 @@ Route::middleware(['auth'])->prefix('admin')->group(function(){
 	Route::resource('/category', CategoryController::class);
 });
 
-
+Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+	\UniSharp\LaravelFilemanager\Lfm::routes();
+});
 
