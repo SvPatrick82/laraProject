@@ -1,14 +1,16 @@
 @extends('admin.layouts.index')
 
 @section('content')
-    <h1>Add Category</h1>
+    <div class="container">
 
-    {!! Form::open(['url' => '/admin/category','files' => true ]) !!}
+        <h1>Add Category</h1>
 
-    @include('admin.category._form')
+        {!! Form::open(['url' => '/admin/category','files' => true ]) !!}
 
-    {!! Form::close() !!}
+        @include('admin.category._form')
 
+        {!! Form::close() !!}
+    </div>
 @endsection
 
 @section('js')

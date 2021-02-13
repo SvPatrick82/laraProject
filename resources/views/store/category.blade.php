@@ -2,7 +2,6 @@
 
 @section('content')
     
-    
     <h1>{{$category->name}}</h1>
 
     <div class="row">

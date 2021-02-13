@@ -11,11 +11,12 @@ class CategoryController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
     public function index()
     {
 		$categories = Category::orderByDesc('created_at')->get();
+
 	    return view('admin.category.index',compact('categories'));
     }
 
@@ -37,6 +38,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
+//    	dd($request);
 //        $category = new Category();
 //        $category->name = $request->name;
 //        $category->slug = $request->slug;
@@ -45,11 +47,15 @@ class CategoryController extends Controller
 //	    $category->img = $request->img;
 //	    $category->save();
 
-
 //        if($fname != null){
 //
 //	        $category->img = $fname->store('uploads');
 //        }
+
+	    $request->validate([
+	    	'name' => 'required|max:255',
+		    'slug' => 'required|unique:categories|max:255',
+	    ]);
 
 	    Category::create($request->all() );
 
@@ -75,7 +81,9 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::findOrFail($id);
+
+        return view('admin.Category.edit',compact('category'));
     }
 
     /**
@@ -87,7 +95,14 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+	    $request->validate([
+		    'name' => 'required|max:255',
+		    'slug' => 'required|unique:categories,slug,'.$id.'|max:255',
+	    ]);
+	    $category = Category::findOrFail($id);
+
+	    $category->update($request->all());
+	    return redirect('/admin/category');
     }
 
     /**
@@ -98,6 +113,7 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+	    $category = Category::findOrFail($id)->delete();
+	    return redirect('/admin/category');
     }
 }

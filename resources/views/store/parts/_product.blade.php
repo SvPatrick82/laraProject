@@ -1,9 +1,19 @@
-<div class="card text-center ms-2" style="width: 18rem; ">
-    <img src="{{$product->img}}" class="card-img-top" alt="{{$product->name}}">
-    <div class="card-body">
-        <h5 class="card-title">{{$product->name}}</h5>
-        <p class="card-text">{{$product->description}}</p>
-        <p>Cost :<span>{{$product->price}}  $</span></p>
-        <a href="#" class="btn btn-primary">Buy</a>
+<div class="border-dark card mb-7 shadow-sm m-2 text-center" style="width: 21rem;  ">
+    <div class="card-header">
+        <h3 class="card-title"><a href="/product/{{$product->slug}}">{{$product->name}}</a></h3>
+    </div>
+    <div class="card-body d-flex flex-column justify-content-between">
+        <img src="{{$product->img}}" class="card-img-top" alt="{{$product->name}}">
+
+        Count: {{$product->reviews_count}}
+
+        <h4>Category: <a href="/category/{{$product->category->slug}}">{{$product->category->name}}</a></h4>
+        <details>
+            <summary style="color:red"><strong>Description</strong></summary>
+            <p class="card-text" >{{$product->description}}</p>
+        </details>
+        {{--                        <p class="card-text" >{{$product->description}}</p>--}}
+        <p class="pricing-card-title ">Cost :<span>{{$product->price}}  $</span></p>
+        <a href="#" class="btn btn-outline-primary">Buy</a>
     </div>
 </div>

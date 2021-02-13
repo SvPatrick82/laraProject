@@ -8,6 +8,7 @@ use App\Http\Controllers\NewsController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\ProductController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -36,7 +37,7 @@ Route::get('/category/{slug}', [StoreController::class,'category']);
 Route::get('/product/{slug}', [StoreController::class,'product']);
 Route::POST('/product/{slug}', [StoreController::class,'addReview']);
 
-Route::get('/product/{slug}/{parameter}', [StoreController::class,'productDesc']);
+//Route::get('/product/{slug}/{parameter}', [StoreController::class,'productDesc']);
 
 
 
@@ -48,9 +49,12 @@ Auth::routes();
 Route::middleware(['auth'])->prefix('admin')->group(function(){
 	Route::get('/',[AdminController::class,'index']);
 	Route::resource('/category', CategoryController::class);
+	Route::resource('/product', ProductController::class);
 });
 
 Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
 	\UniSharp\LaravelFilemanager\Lfm::routes();
 });
+
+
 

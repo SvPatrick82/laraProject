@@ -185,6 +185,9 @@
 
             <li class="list-group-item"><a href="/admin/category">Categories</a></li>
 
+            <li class="list-group-item"><a href="/admin/product">Products</a></li>
+
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -199,6 +202,7 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
+
       @yield('content')
 
       </div><!-- /.container-fluid -->

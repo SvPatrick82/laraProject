@@ -21,7 +21,12 @@
                 <td>{{$loop->iteration}}</td>
                 <td><img src="{{asset($item->img)}}" alt="" style="width: 75px"></td>
                 <td>{{$item->name}}</td>
-                <td></td>
+                <td class="d-flex justify-content-around"><a href="/admin/category/{{$item->id}}/edit" class="btn btn-warning">Edit</a>
+                    {!! Form::open(['url' => '/admin/category/'.$item->id , 'method' => 'DELETE' ]) !!}
+                    <button class="btn btn-danger">Delete</button>
+                    {!! Form::close() !!}
+                </td>
+
             </tr>
         @endforeach
 

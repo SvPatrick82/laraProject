@@ -10,6 +10,8 @@ class Product extends Model
 {
 	use HasFactory;
 
+	protected $fillable = ['name','price','description', 'action_price','slug', 'img','category_id','recommended'];
+
 	public function getImgAttribute($value){
 		return $value ? $value : '/images/no_image.png';
 	}
