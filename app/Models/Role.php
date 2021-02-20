@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Role extends Model
 {
     use HasFactory;
+
+	public function permissions()// метод связи
+	{
+		// связывает автоматически в 3 таблице
+		return $this->belongsToMany(Permission::class, 'roles_permissions');
+	}
 }

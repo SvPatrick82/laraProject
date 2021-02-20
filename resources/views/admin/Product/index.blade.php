@@ -24,7 +24,7 @@
                 <td>{{$loop->iteration}}</td>
                 <td><img src="{{asset($item->img)}}" alt="" style="width: 75px"></td>
                 <td>{{$item->name}}</td>
-                <td>{{$item->category->name}}</td>
+                <td>{{$item->category ? $item->category->name : ''}}</td>
                 <td>{{$item->price}}</td>
                 <td class=" text-center">{{$item->action_price}}</td>
                 <td>{{$item->slug}}</td>

@@ -32,9 +32,11 @@ class StoreController extends Controller
 //		dd($products);
 		return view('store.category',compact('category','products'));
 	}
-	public function product($slug)
+	public function product(Product $product)
 	{
-		$product = Product::where('slug','=',$slug)->firstOrFail();
+
+
+//		$product = Product::where('slug','=',$slug)->firstOrFail();
 		$category = Category::where($product->category_id,'=','category_id');
 //		dd($product);
 		return view('store.product', compact('product','category'));

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Permission;
+use App\Models\Role;
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Category;
@@ -13,10 +16,10 @@ class MainController extends Controller
 
 	public function index()
 	{
+
 		$title = 'Welcome';
 		$subtitle = '<em> to store </em>';
 		$products = Product::with('category')->lastes()->get(); //category --  название метода в модели
-//		dd($products[0]);
 //		$categories = Category::all();
 //		dd($categories);
 		return view('main.index',compact('title','products','subtitle'));

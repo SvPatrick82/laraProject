@@ -14,6 +14,15 @@
         <div class="box2 border-dark">
             <h1>{{$product->name}}</h1>
             <p>{{$product->category->name}}</p>
+            <img src="{{$product->img}}" alt="{{$product->img}}" style="width: 300px">
+
+            <form action="" class="form-add-to-cart">
+                <div class="form-group">
+                    <input type="number" name="qty" class="form-control" value="1" >
+                </div>
+                <input type="hidden" name="product_id" value="{{$product->id}}">
+                <button class="btn btn-primary">Add to Cart</button>
+            </form>
 
             <h3>Reviews</h3>
 
@@ -28,9 +37,6 @@
                 <input type="hidden" name="product_id" value="{{$product->id}}">
             </form>
         </div>
-
     </div>
-
-
 
 @endsection

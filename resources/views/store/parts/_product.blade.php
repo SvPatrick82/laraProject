@@ -7,7 +7,7 @@
 
         Count: {{$product->reviews_count}}
 
-        <h4>Category: <a href="/category/{{$product->category->slug}}">{{$product->category->name}}</a></h4>
+{{--        <h4>Category: <a href="/category/{{$product->category->slug}}">{{$product->category->name}}</a></h4>--}}
         <details>
             <summary style="color:red"><strong>Description</strong></summary>
             <p class="card-text" >{{$product->description}}</p>
